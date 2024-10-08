@@ -3,7 +3,7 @@ from psycopg2.extras import RealDictCursor
  
 db_params = {
     'host': 'localhost',
-    'database': 'postgres',
+    'database': 'fastapi',
     'user': 'postgres',
     'password': '12345'
 }

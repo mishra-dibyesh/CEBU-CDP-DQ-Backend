@@ -1,59 +1,14 @@
 from fastapi import FastAPI,Depends
-from pydantic import BaseModel
 from typing import List 
 from datetime import date
-from pydantic import BaseModel
 import psycopg2     
 from  psycopg2.extras import RealDictCursor
-
+from schema import  ColumnMeta,NumericalDetail,CategoryDetail,DateDetail
 app = FastAPI()
 
-class ColumnMeta(BaseModel):
-    column_name: str
-    d_type: str
-    non_null_count: int
-    fill_rate: float
-    rank: int
-    unique_count: int
-    unique_rate: float
-
-class NumericalDetail(BaseModel):
-    column_name: str
-    count: int
-    min: float
-    max: float
-    percentile_05: float
-    percentile_95: float
-    percentile_25: float
-    percentile_75: float
-    median: float
-    mean: float
-    std_dev: float
-    skewness: float=0.0
-    variance: float
-    first: float
-    second: float
-    third: float
-    fourth: float
-    fifth: float
-
-class CategoryDetail(BaseModel):
-    category: str
-    value_counts: int
-    column_name: str
-    category_distribution: str
-
-class DateDetail(BaseModel):
-    column_name: str
-    mon_yr: str
-    mon_yr_count: int
-    month: int
-    year: int
-    min_date: date
-    max_date: date
 
 try:
-    conn=psycopg2.connect(host='localhost',database='postgres',user='postgres',password='12345',cursor_factory=RealDictCursor)
+    conn=psycopg2.connect(host='localhost',database='fastapi',user='postgres',password='12345',cursor_factory=RealDictCursor)
     cursor=conn.cursor()
     print("Database connection was successful")
 except Exception as e:
@@ -63,7 +18,7 @@ except Exception as e:
 
 @app.get("/")
 async def read_root():
-    return {"message": "Welcome to the FastAPI application!"}
+    return {"message": "Welcome to the DataQuality application!"}
 
 #  ----------------------------------------------PASSENGER PROFILING DATA----------------------------------------------#
 

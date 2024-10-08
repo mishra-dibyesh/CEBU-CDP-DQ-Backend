@@ -1,7 +1,23 @@
-Customer,981,BookerType,98.79
-Agent,12,BookerType,1.21
-Unknown,640,BookerCity,64.45
-MNL,76,BookerCity,7.65
-dummyvalue,27,BookerCity,2.72
-Quezon City,20,BookerCity,2.01
-Davao City,8,BookerCity,0.81
+MS,10026,HonorificPrefix,52.27
+MR,8321,HonorificPrefix,43.38
+Unknown,592,HonorificPrefix,3.09
+MSTR,129,HonorificPrefix,0.67
+MISS,75,HonorificPrefix,0.39
+2,9731,Gender,50.74
+1,8930,Gender,46.56
+0,519,Gender,2.71
+PH,15038,Nationality,78.4
+"",1271,Nationality,6.63
+US,453,Nationality,2.36
+KR,344,Nationality,1.79
+CN,273,Nationality,1.42
+Unknown,18756,City,97.79
+BKK,60,City,0.31
+MNL,35,City,0.18
+dummyvalue,24,City,0.13
+bkk,21,City,0.11
+Unknown,18985,State,98.98
+BKK,74,State,0.39
+bkk,23,State,0.12
+AN,13,State,0.07
+MNL,12,State,0.06
