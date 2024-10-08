@@ -8,7 +8,7 @@ app = FastAPI()
 
 
 try:
-    conn=psycopg2.connect(host='localhost',database='fastapi',user='postgres',password='12345',cursor_factory=RealDictCursor)
+    conn=psycopg2.connect(host='localhost',database='Dataquality',user='postgres',password='12345',cursor_factory=RealDictCursor)  #update with your password 
     cursor=conn.cursor()
     print("Database connection was successful")
 except Exception as e:

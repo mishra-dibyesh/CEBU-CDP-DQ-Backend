@@ -2,10 +2,10 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
  
 db_params = {
-    'host': 'localhost',
-    'database': 'fastapi',
-    'user': 'postgres',
-    'password': '12345'
+    'host': 'localhost',      
+    'database': 'Dataquality',       #create a new database
+    'user': 'postgres',              
+    'password': '12345'              #enter your postgres password
 }
 
 def create_connection():
