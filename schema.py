@@ -30,6 +30,17 @@ class NumericalDetail(BaseModel):
     fourth: float
     fifth: float
 
+
+class MetaData(BaseModel):
+    data_field: int                   
+    record: int                    
+    completeness: float             
+    duplicates: int                   
+    numerical: int                 
+    categorical: int              
+    date: int                      
+
+
 class CategoryDetail(BaseModel):
     category: str
     value_counts: int

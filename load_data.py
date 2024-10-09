@@ -82,6 +82,17 @@ def create_tables(ct):
             );
             """)
 
+            cursor.execute(f"""
+          CREATE TABLE IF NOT EXISTS {ct}_meta_data (
+                data_field BIGINT,           
+                record BIGINT,              
+                completeness FLOAT,         
+                duplicates BIGINT,          
+                numerical BIGINT,            
+                categorical BIGINT,         
+                date BIGINT);
+            """)
+
             conn.commit()
             print("Tables created successfully.")
         except Exception as e:
@@ -99,6 +110,7 @@ def load_csv_to_db(csv_file_path, tbln):
     if conn:
         cursor = conn.cursor()
         try:
+            cursor.execute(f"DELETE FROM {tbln}")
             with open(csv_file_path, 'r') as f:
                 cmd = f'COPY {tbln} FROM STDIN WITH (FORMAT CSV, HEADER FALSE)'
                 cursor.copy_expert(cmd, f)
@@ -121,3 +133,6 @@ load_csv_to_db("Passenger_data//p_categorial_det.csv", "p_category_details")
 load_csv_to_db("Passenger_data//p_col_det.csv", "p_col_meta_details")
 load_csv_to_db("Passenger_data//p_date_details.csv", "p_date_details")
 load_csv_to_db("Passenger_data//p_num_details.csv", "p_numerical_details")
+
+load_csv_to_db("Passenger_data//p_meta_data.csv", "p_meta_data")
+load_csv_to_db("Booker_data//b_meta_data.csv", "b_meta_data")   
