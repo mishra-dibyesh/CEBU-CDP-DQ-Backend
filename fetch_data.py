@@ -4,9 +4,20 @@ from datetime import date
 import psycopg2    
 from psycopg2.extras import RealDictCursor
 from schema import ColumnMeta, NumericalDetail, CategoryDetail, DateDetail,MetaData
- 
+from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI()
  
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+
 try:
     conn = psycopg2.connect(host='localhost', database='Dataquality', user='postgres', password='12345', cursor_factory=RealDictCursor)
     cursor = conn.cursor()
