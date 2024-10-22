@@ -110,7 +110,7 @@ def load_csv_to_db(csv_file_path, tbln):
     if conn:
         cursor = conn.cursor()
         try:
-            cursor.execute(f"DELETE FROM {tbln}")
+           
             with open(csv_file_path, 'r') as f:
                 cmd = f'COPY {tbln} FROM STDIN WITH (FORMAT CSV, HEADER FALSE)'
                 cursor.copy_expert(cmd, f)
